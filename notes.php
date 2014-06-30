@@ -46,21 +46,21 @@ if (isset($_POST['note'])){
     header('HTTP/1.1 200 OK');
 
     $con=  mysqli_connect("localhost","root","","notes");
-    $query = "SELECT * FROM `$note_table`" or die(mysqli_error($con));
+    $query = "SELECT * FROM `note_table`" or die(mysqli_error($con));
     $result = mysqli_query($con, $query) or die(mysqli_error($con));
     $count = mysqli_num_rows($result);
 
-    $response = array();
+    $result = array();
 
     for ($i=0; $i<$count; $i++) {
         $row = mysqli_fetch_row($result);
-        $response[] = array(
+        $result[] = array(
             "id"    => $row["0"],
             "note"  => $row["1"],
             "date"  => $row["2"]
         );
     }
-    print json_encode($response);
+    print json_encode($result);
 }
 
 	}
@@ -68,4 +68,5 @@ if (isset($_POST['note'])){
 else{
 	echo ("connection fail");
 	}
+	
 ?>

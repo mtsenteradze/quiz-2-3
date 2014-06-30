@@ -10,11 +10,31 @@
 </div>
 <div class="table">
     <table  id="table">
-        <tr>
-            <th>Note</th>
-            <th>ID</th>
-            <th>Data</th>
-            <th>Delete</th>
-        </tr>
+        <thread>
+            <th></th> <td>ID</td>
+            <th></th> <td>Note</td>
+            <th></th> <td>Date</td>
+            <th></th> <td>Delete</td>
+        </thread>
+        <tbody>
+                    <?php
+                        $con=mysqli_connect("localhost","root","","notes");
+                        $query = ("SELECT * FROM `note_table`");
+                        $data= mysqli_query($con, $query) or die ('error');
+                        
+                        while( $row = mysqli_fetch_array($data,MYSQLI_ASSOC)){
+
+                        	echo "<tr>"; 
+                        	echo "<th></th> <td>".$row['id'] . "</td> "; 
+                            echo "<th></th> <td>".$row['note'] . "</td> "; 
+                            echo "<th></th> <td>".$row['date'] . " </td>";
+                            echo "</tr>";
+                        }
+                           
+
+
+                    ?>
+                </tbody>
     </table>
 </div>
+<script type="text/javascript" src = "notes.js"></script>
