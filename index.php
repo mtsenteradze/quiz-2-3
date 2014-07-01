@@ -1,4 +1,13 @@
-<form method="post" action="notes.php">
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src = "notes.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+<form id = "form" method="post" action="notes.php">
     <fieldset>
         <legend>Add note</legend>
             <div>
@@ -37,4 +46,6 @@
                 </tbody>
     </table>
 </div>
-<script type="text/javascript" src = "notes.js"></script>
+
+</body>
+</html>

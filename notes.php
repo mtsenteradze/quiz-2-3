@@ -17,27 +17,27 @@ if (isset($_POST['note'])){
         header("HTTP/1.0 201 Created");
 
 
-	    $arr = array(
+	    $response = array(
         'status' => array(
             "message" => "Note created"
         )
     	);
          
 
-     echo json_encode($arr, JSON_PRETTY_PRINT);	
+     echo json_encode($response, JSON_PRETTY_PRINT);	
 	    
 	}else{
 
 		header('Content-Type: application/json');
         header('HTTP/1.1 400 Bad Request');
 
-        $arr = array(
+        $response = array(
             'status' => array(
                 "message" => "Unable to create note..."
             )
         );
 
-    print json_encode($arr, JSON_PRETTY_PRINT);
+    print json_encode($response, JSON_PRETTY_PRINT);
 	}
 
 	if(!empty($_GET)){
